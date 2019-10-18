@@ -1,0 +1,19 @@
+{
+  "name": "bootcamps-api",
+  "version": "1.0.0",
+  "description": "An api for an app that displays code bootcamps",
+  "main": "server.js",
+  "scripts": {
+    "start": "NODE_ENV=production node server",
+    "dev": "nodemon server"
+  },
+  "author": "Esteban Sánchez",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
