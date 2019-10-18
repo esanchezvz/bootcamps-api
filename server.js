@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const colors = require('colors');
 
 const connectDB = require('./config/db');
+const errorHandler = require('./middlewares/error');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -17,12 +18,19 @@ connectDB();
 // Route files
 const bootcamps = require('./routes/bootcamps');
 
-// Server middlewares
+// Dev logger
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
+
+// Body parser
 app.use(express.json());
-process.env.NODE_ENV === 'development' ? app.use(morgan('dev')) : null;
 
 // Mount routers
 app.use('/api/v1/bootcamps', bootcamps);
+
+// Server middlewares
+app.use(errorHandler);
 
 const server = app.listen(
   PORT,
