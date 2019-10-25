@@ -6,7 +6,9 @@
   "scripts": {
     "start": "NODE_ENV=production node server",
     "dev": "nodemon server",
-    "seed": "node seeder.js -d && node seeder.js -i && npm run dev"
+    "seed": "node seeder.js -d && node seeder.js -i && npm run dev",
+    "count": "cloc .",
+    "count:source": "cloc . --exclude-dir=node_modules"
   },
   "author": "Esteban Sánchez",
   "license": "MIT",
@@ -20,6 +22,7 @@
     "slugify": "^1.3.5"
   },
   "devDependencies": {
+    "cloc": "^2.5.0",
     "nodemon": "^1.19.4"
   }
 }
